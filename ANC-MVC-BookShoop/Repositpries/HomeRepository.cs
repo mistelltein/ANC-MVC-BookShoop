@@ -7,7 +7,12 @@ namespace ANC_MVC_BookShoop.Repositpries
 		private readonly ApplicationDbContext _db;
 		public HomeRepository(ApplicationDbContext db)
 		{
-			this._db = db;
+			_db = db;
+		}
+
+		public async Task<IEnumerable<Genre>> Genres()
+		{
+			return await _db.Genres.ToListAsync();
 		}
 
 		public async Task<IEnumerable<Book>> GetBooks(string sTerm="", int genreId = 0)
