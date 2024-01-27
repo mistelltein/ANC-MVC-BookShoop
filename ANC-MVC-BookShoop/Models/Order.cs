@@ -11,7 +11,7 @@ namespace ANC_MVC_BookShoop.Models
         [Required]
         public string UserId { get; set; }
 
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreateDate { get; set; } = DateTime.Now;
 
         [Required]
         public int OrderStatusId { get; set; }

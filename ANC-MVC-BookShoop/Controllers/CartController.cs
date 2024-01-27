@@ -41,5 +41,16 @@ namespace ANC_MVC_BookShoop.Controllers
 
 			return Ok(cartItem);
 		}
-	}
+
+        public async Task<IActionResult> Checkout(int bookId)
+        {
+            bool isCheckedOut = await _cartRepo.DoCheckout();
+            if (!isCheckedOut)
+			{
+                throw new Exception("Something happen in server side");
+            }
+                
+            return RedirectToAction("Index", "Home");
+        }
+    }
 }
